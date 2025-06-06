@@ -1,0 +1,34 @@
+<Shell
+    x:Class="ScrumMaui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ScrumMaui"
+    xmlns:info="clr-namespace:ScrumMaui.Views.Info"
+    xmlns:user="clr-namespace:ScrumMaui.Views.User"
+    xmlns:panels="clr-namespace:ScrumMaui.Views.Panels"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Scrum Maui">
+
+    <TabBar>
+        <Tab Title="Inicio" Icon="inicio_bn.png">
+            <ShellContent Title="Inicio" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+        </Tab>
+        <Tab Title="Usuario" Icon="usuario_bn.png">
+            <ShellContent Title="Datos Usuario" ContentTemplate="{DataTemplate user:UserEquipment}" />
+            <ShellContent Title="Equipo" ContentTemplate="{DataTemplate user:UserEquipment}" />
+        </Tab>
+        <Tab Title="BackLog" Icon="backlog.png">
+            <ShellContent Title="Panel BackLog" ContentTemplate="{DataTemplate panels:Backlog}" />
+            <ShellContent Title="Nueva Tarea" ContentTemplate="{DataTemplate info:Help01Scrum}" />
+        </Tab>
+        <Tab Title="Sprint" Icon="spring_bn.png">
+            <ShellContent Title="Nuevo" ContentTemplate="{DataTemplate info:Help01Scrum}" />
+            <ShellContent Title="Panel" ContentTemplate="{DataTemplate info:Help01Scrum}" />
+            <ShellContent Title="Daily" ContentTemplate="{DataTemplate info:Help01Scrum}" />
+            <ShellContent Title="Retrospectiva" ContentTemplate="{DataTemplate info:Help01Scrum}" />
+        </Tab>
+        <Tab Title="Ayuda" Icon="help_bn.png">
+            <ShellContent Title="Ayuda" ContentTemplate="{DataTemplate info:Help01Scrum}" />
+        </Tab>
+    </TabBar>
+</Shell>

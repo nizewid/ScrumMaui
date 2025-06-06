@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+        x:Class="ScrumMaui.Views.Info.Help01Scrum"
+        xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScrumMaui.Views.Info"
+        mc:Ignorable="d"
+        Title="Help 01 Scrum">
+    
+        <ScrollView>
+        <VerticalStackLayout Margin="30,10,30,30">
+            <Image Source="logo_scrummaui.png" Margin="10,0,10,30"/>
+            <Label FontSize="Subtitle" TextColor="#3c75c1" Text="Scrum MAUI te permite planificar el desarrollo de tu proyecto, disponer tu lista de producto, planificar lo que incluye cada spring, consultar el panel con el estado de las tareas y ver el trabajo restante para entregar el producto."/>
+            <Label Text="Bloques de la aplicación" Margin="0,20,0,0" FontSize="Medium"/>
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+                <Label WidthRequest="200" Text="Partes principales de la metodología Scrum en los que se define el trabajo a realizar"/>
+                <Button Text="Artefactos" WidthRequest="100" FontAttributes="Bold" BackgroundColor="#27a3d4" x:Name="btnArtefactos" Clicked="btnArtefactos_Clicked"/>
+            </HorizontalStackLayout>
+
+            <Grid x:Name="panelArtefactos" IsVisible="False" Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="backlog.png" HeightRequest="30"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Backlog. Lista de tareas del proyecto" />
+                <Image Grid.Row="1" Grid.Column="0" Source="springbacklog.png" HeightRequest="30"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="Spring Backlog. Tareas a realizar en un Spring" />
+                <Image Grid.Row="2" Grid.Column="0" Source="scrumpanel.png" HeightRequest="30"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="Tablero Scrum. Visualización del estado de las tareas" />
+            </Grid>
+
+
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+                <Label WidthRequest="200" Text="Tipos de usuarios que participan en los ciclos de Scrum"/>
+                <Button Text="Usuarios" WidthRequest="100" FontAttributes="Bold" x:Name="btnUsuarios" BackgroundColor="#27a3d4" Clicked="btnUsuarios_Clicked"/>
+            </HorizontalStackLayout>
+
+            <Grid x:Name="panelUsuarios" IsVisible="False" Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="productowner.png" HeightRequest="30"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Product Owner. Representante del negocio" />
+                <Image Grid.Row="1" Grid.Column="0" Source="scrummaster.png" HeightRequest="30"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="Scrum Master. Gestor del proyecto" />
+                <Image Grid.Row="2" Grid.Column="0" Source="scrumequipo.png" HeightRequest="30"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="Equipo. Realizan las tareas asignadas" />
+            </Grid>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
+                <Label WidthRequest="200" Text="Estructuras en las que se fragmentan las tareas a realizar"/>
+                <Button Text="Elementos" WidthRequest="100" FontAttributes="Bold" BackgroundColor="#27a3d4" x:Name="btnElementos" Clicked="btnElementos_Clicked"/>
+            </HorizontalStackLayout>
+
+            <Grid x:Name="panelElementos" IsVisible="False" Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0" Grid.Column="0" Source="scrumepica.png" HeightRequest="30"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="Épica. Agrupación de tareas" />
+                <Image Grid.Row="1" Grid.Column="0" Source="scrumhistoria.png" HeightRequest="30"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="Historia de Usuario. Funcionalidad de usuario final" />
+                <Image Grid.Row="2" Grid.Column="0" Source="scrumtarea.png" HeightRequest="30"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="Tarea. Pieza final a desarrollar" />
+                <Image Grid.Row="3" Grid.Column="0" Source="scrumincidencia.png" HeightRequest="30"/>
+                <Label Grid.Row="3" Grid.Column="1" Text="Incidencia. Problema a solucionar" />
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

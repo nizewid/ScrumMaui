@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScrumMaui.Views.Backlog.BacklogTabbedPage"
+             Title="Backlog">
+
+    <!-- Aquí puedes insertar subpáginas -->
+    <ContentPage Title="Panel BackLog">
+        <Label Text="Panel BackLog (pendiente de implementar)" 
+               HorizontalOptions="Center" VerticalOptions="Center" />
+    </ContentPage>
+
+    <ContentPage Title="Nueva Tarea">
+        <Label Text="Nueva Tarea (pendiente de implementar)" 
+               HorizontalOptions="Center" VerticalOptions="Center" />
+    </ContentPage>
+
+</TabbedPage>

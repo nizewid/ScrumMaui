@@ -1,0 +1,25 @@
+# Build folders
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# Visual Studio folders
+.vs/
+
+# VS Code
+.vscode/
+
+# Logs and databases
+*.log
+*.db
+*.sqlite
+
+# macOS and Windows system files
+.DS_Store
+Thumbs.db
+
+# Others
+*.swp
