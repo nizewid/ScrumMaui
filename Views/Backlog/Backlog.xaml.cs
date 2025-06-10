@@ -1,6 +1,5 @@
 using ScrumMaui.ViewModels;
-
-namespace ScrumMaui.Views.Panels;
+namespace ScrumMaui.Panels;
 
 public partial class Backlog : ContentPage
 {

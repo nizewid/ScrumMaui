@@ -19,6 +19,7 @@
         </Tab>
         <Tab Title="BackLog" Icon="backlog.png">
             <ShellContent Title="Panel BackLog" ContentTemplate="{DataTemplate panels:Backlog}" />
+            <ShellContent Title="Tareas Web" ContentTemplate="{DataTemplate panels:WebTaskList}" />
             <ShellContent Title="Nueva Tarea" ContentTemplate="{DataTemplate info:Help01Scrum}" />
         </Tab>
         <Tab Title="Sprint" Icon="spring_bn.png">

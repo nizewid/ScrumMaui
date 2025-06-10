@@ -10,7 +10,7 @@ namespace ScrumMaui.Data
 {
     public static class ScrumData
     {
-        public static List<Task> GetBacklogList()
+        public static async Task<List<Models.Task>> GetBacklogList()
         {
             List<Task> backlog = new List<Task>
             {

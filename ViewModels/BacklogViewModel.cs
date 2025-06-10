@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using ScrumMaui.Data;
 using ScrumMaui.Models;
 
@@ -10,24 +14,52 @@ namespace ScrumMaui.ViewModels
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public List<Models.Task> ListBacklog { get; set; }
+        public ObservableCollection<Models.Task> BacklogList { get; set; }
+
+        public ICommand SearchTaskCommand { get; }
 
         public BacklogViewModel()
         {
-            ListBacklog = new List<Models.Task>();
-            LoadListBacklog();
+            BacklogList = new ObservableCollection<Models.Task>();
+            _ = LoadBacklogList("");
+            SearchTaskCommand = new Command<string>(async (param) => await ExecuteSearch(param));
         }
 
-        private void LoadListBacklog()
+        private async System.Threading.Tasks.Task LoadBacklogList(string taskNameFilter)
         {
-            ListBacklog = ScrumData.GetBacklogList();
-
-            foreach (Models.Task t in ListBacklog)
+            try
             {
-                t.EndDateText = string.Format("{0:dd/MM/yyyy}", t.EndDate);
-                t.PlannedDateText = string.Format("{0:dd/MM/yyyy}", t.PlannedDate);
-                t.AssignedDateText = string.Format("{0:dd/MM/yyyy}", t.AssignedDate);
+                List<Models.Task> taskList = await ScrumData.GetBacklogList();
+
+                if (!string.IsNullOrWhiteSpace(taskNameFilter))
+                {
+                    taskList = taskList
+                        .Where(t => t.Name.ToLower().Contains(taskNameFilter.ToLower()))
+                        .ToList();
+                }
+
+                foreach (var t in taskList)
+                {
+                    t.EndDateText = t.EndDate?.ToString("dd/MM/yyyy") ?? string.Empty;
+                    t.PlannedDateText = t.PlannedDate?.ToString("dd/MM/yyyy") ?? string.Empty;
+                    t.AssignedDateText = t.AssignedDate?.ToString("dd/MM/yyyy") ?? string.Empty;
+                }
+
+                BacklogList.Clear();
+                foreach (var t in taskList)
+                {
+                    BacklogList.Add(t);
+                }
             }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"[Backlog] Error: {ex.Message}");
+            }
+        }
+
+        private async System.Threading.Tasks.Task ExecuteSearch(string searchText)
+        {
+            await LoadBacklogList(searchText);
         }
     }
 }
