@@ -16,6 +16,7 @@
         <Tab Title="Usuario" Icon="usuario_bn.png">
             <ShellContent Title="Datos Usuario" ContentTemplate="{DataTemplate user:UserEquipment}" />
             <ShellContent Title="Equipo" ContentTemplate="{DataTemplate user:UserEquipment}" />
+            <ShellContent Title="Equipo" ContentTemplate="{DataTemplate user:Locations}" />
         </Tab>
         <Tab Title="BackLog" Icon="backlog.png">
             <ShellContent Title="Panel BackLog" ContentTemplate="{DataTemplate panels:Backlog}" />
