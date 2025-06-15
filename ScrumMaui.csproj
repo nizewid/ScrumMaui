@@ -86,10 +86,13 @@
 	  <MauiXaml Update="Views\Panels\Backlog.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Spring\CreateSpringList.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Spring\Daily.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Spring\MakeSpring.xaml">
+	  <MauiXaml Update="Views\Spring\NewSpring.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Spring\Retrospective.xaml">

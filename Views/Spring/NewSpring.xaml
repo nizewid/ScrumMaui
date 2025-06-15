@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScrumMaui.Views.Spring.NewSpring"
+             Title="Nuevo Spring">
+
+    <ScrollView>
+        <VerticalStackLayout Margin="20">
+
+            <Label Text="Fecha inicio"/>
+            <DatePicker x:Name="StartDate" />
+            <Label x:Name="lblErrStartDate" Text="" TextColor="Red" IsVisible="False"/>
+
+            <Label Text="Fecha fin" Margin="0,20,0,0"/>
+            <DatePicker x:Name="EndDate" />
+            <Label x:Name="lblErrEndDate" Text="" TextColor="Red" IsVisible="False"/>
+
+            <Label Text="Nombre del Spring" Margin="0,20,0,0"/>
+            <Entry x:Name="txtSpringName" />
+            <Label x:Name="lblErrSpringName" Text="" TextColor="Red" IsVisible="False"/>
+
+            <Label Text="Objetivo" Margin="0,20,0,0"/>
+            <Editor x:Name="txtObjective" AutoSize="TextChanges" HeightRequest="60" />
+            <Label x:Name="lblErrObjective" Text="" TextColor="Red" IsVisible="False"/>
+
+            <Label Text="Criterio de aceptación" Margin="0,20,0,0"/>
+            <Entry x:Name="txtAcceptance" />
+            <Label x:Name="lblErrAcceptance" Text="" TextColor="Red" IsVisible="False"/>
+
+            <Label Text="Valor puntual (100-2000)" Margin="0,20,0,0"/>
+            <Entry x:Name="txtPointValue" Keyboard="Numeric" />
+            <Label x:Name="lblErrPointValue" Text="" TextColor="Red" IsVisible="False"/>
+
+            <Label x:Name="lblErrGlobal" Text="" TextColor="Red" BackgroundColor="MistyRose" IsVisible="False" Margin="0,20,0,0"/>
+
+            <HorizontalStackLayout Spacing="10" Margin="0,30,0,0" HorizontalOptions="Center">
+                <Button Text="Aceptar" x:Name="btnAccept" Clicked="btnAccept_Clicked" BackgroundColor="Teal"/>
+                <Button Text="Cancelar" x:Name="btnCancel" Clicked="btnCancel_Clicked" BackgroundColor="Teal"/>
+                <Button Text="Crear Backlog" x:Name="btnCreateBacklog" Clicked="btnCreateBacklog_Clicked" BackgroundColor="LightSlateGray"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

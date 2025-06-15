@@ -6,6 +6,7 @@
     xmlns:info="clr-namespace:ScrumMaui.Views.Info"
     xmlns:user="clr-namespace:ScrumMaui.Views.User"
     xmlns:panels="clr-namespace:ScrumMaui.Views.Panels"
+    xmlns:spring="clr-namespace:ScrumMaui.Views.Spring"
     Shell.FlyoutBehavior="Disabled"
     Title="Scrum Maui">
 
@@ -23,8 +24,8 @@
             <ShellContent Title="Tareas Web" ContentTemplate="{DataTemplate panels:WebTaskList}" />
             <ShellContent Title="Nueva Tarea" ContentTemplate="{DataTemplate info:Help01Scrum}" />
         </Tab>
-        <Tab Title="Sprint" Icon="spring_bn.png">
-            <ShellContent Title="Nuevo" ContentTemplate="{DataTemplate info:Help01Scrum}" />
+        <Tab Title="Spring" Icon="spring_bn.png">
+            <ShellContent Title="Nuevo" ContentTemplate="{DataTemplate spring:NewSpring}" />
             <ShellContent Title="Panel" ContentTemplate="{DataTemplate info:Help01Scrum}" />
             <ShellContent Title="Daily" ContentTemplate="{DataTemplate info:Help01Scrum}" />
             <ShellContent Title="Retrospectiva" ContentTemplate="{DataTemplate info:Help01Scrum}" />
