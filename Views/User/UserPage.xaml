@@ -2,11 +2,90 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ScrumMaui.Views.User.UserPage"
-             Title="UserPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             xmlns:viewmodel="clr-namespace:ScrumMaui.ViewModels"
+             Title="User Details">
+    <VerticalStackLayout Margin="20" Spacing="15">
+        <Label Text="Información del Usuario"
+               FontAttributes="Bold"
+               FontSize="20"
+               HorizontalTextAlignment="Center" />
+
+        <Label Text="Nombre de usuario"/>
+        <Entry x:Name="UsernameEntry" Text="{Binding userParam.UserName}" Placeholder="Introduce tu nombre de usuario">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Lavender" />
+                                <Setter Property="FontSize" Value="18" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Focused">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="MistyRose" />
+                                <Setter Property="TextColor" Value="Purple" />
+                                <Setter Property="FontSize" Value="20" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Error">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Red" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </VisualStateManager.VisualStateGroups>
+        </Entry>
+
+        <Label Text="Rol"/>
+        <Entry x:Name="RoleEntry" Text="{Binding userParam.Role}" Placeholder="Introduce tu rol">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Lavender" />
+                                <Setter Property="FontSize" Value="18" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Focused">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="MistyRose" />
+                                <Setter Property="TextColor" Value="Purple" />
+                                <Setter Property="FontSize" Value="20" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Error">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="Red" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </VisualStateManager.VisualStateGroups>
+        </Entry>
+        <Label Text="¿Es Scrum Master?" Margin="0,40,0,0"/>
+        <Switch x:Name="IsScrumMasterSwitch"  IsToggled="{Binding userParam.IsScrumMaster}">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState Name="On">
+                            <VisualState.Setters>
+                                <Setter Property="ThumbColor" Value="Green" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Off">
+                            <VisualState.Setters>
+                                <Setter Property="ThumbColor" Value="Red" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </VisualStateManager.VisualStateGroups>
+        </Switch>
+
+        <Button Text="EnseñarDatos" Clicked="OnShowDataClicked" />
+
     </VerticalStackLayout>
 </ContentPage>

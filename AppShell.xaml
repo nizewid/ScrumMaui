@@ -11,27 +11,31 @@
     Title="Scrum Maui">
 
     <TabBar>
-        <Tab Title="Inicio" Icon="inicio_bn.png">
-            <ShellContent Title="Inicio" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+        <Tab Route="home_root" Title="Inicio" Icon="inicio_bn.png">
+            <ShellContent Title="Inicio" ContentTemplate="{DataTemplate local:MainPage}" Route="home" />
         </Tab>
-        <Tab Title="Usuario" Icon="usuario_bn.png">
-            <ShellContent Title="Datos Usuario" ContentTemplate="{DataTemplate user:UserEquipment}" />
-            <ShellContent Title="Equipo" ContentTemplate="{DataTemplate user:UserEquipment}" />
-            <ShellContent Title="Equipo" ContentTemplate="{DataTemplate user:Locations}" />
+
+        <Tab Route="user_root" Title="Usuario" Icon="usuario_bn.png">
+            <ShellContent Title="Datos Usuario" ContentTemplate="{DataTemplate user:UserPage}" Route="user_data" />
+            <ShellContent Title="Equipo" ContentTemplate="{DataTemplate user:UserEquipment}" Route="team" />
+            <ShellContent Title="Asignar" ContentTemplate="{DataTemplate user:Locations}" Route="assign" />
         </Tab>
-        <Tab Title="BackLog" Icon="backlog.png">
-            <ShellContent Title="Panel BackLog" ContentTemplate="{DataTemplate panels:Backlog}" />
-            <ShellContent Title="Tareas Web" ContentTemplate="{DataTemplate panels:WebTaskList}" />
-            <ShellContent Title="Nueva Tarea" ContentTemplate="{DataTemplate info:Help01Scrum}" />
+
+        <Tab Route="backlog_root" Title="BackLog" Icon="backlog.png">
+            <ShellContent Title="Panel BackLog" ContentTemplate="{DataTemplate panels:Backlog}" Route="backlog_panel" />
+            <ShellContent Title="Tareas Web" ContentTemplate="{DataTemplate panels:WebTaskList}" Route="backlog_web" />
+            <ShellContent Title="Nueva Tarea" ContentTemplate="{DataTemplate panels:NewTask}" Route="backlog_new" />
         </Tab>
-        <Tab Title="Spring" Icon="spring_bn.png">
-            <ShellContent Title="Nuevo" ContentTemplate="{DataTemplate spring:NewSpring}" />
-            <ShellContent Title="Panel" ContentTemplate="{DataTemplate info:Help01Scrum}" />
-            <ShellContent Title="Daily" ContentTemplate="{DataTemplate info:Help01Scrum}" />
-            <ShellContent Title="Retrospectiva" ContentTemplate="{DataTemplate info:Help01Scrum}" />
+
+        <Tab Route="spring_root" Title="Spring" Icon="spring_bn.png">
+            <ShellContent Title="Nuevo" ContentTemplate="{DataTemplate spring:NewSpring}" Route="sprint_new" />
+            <ShellContent Title="Panel" ContentTemplate="{DataTemplate spring:SpringPanel}" Route="sprint_panel" />
+            <ShellContent Title="Daily" ContentTemplate="{DataTemplate info:Help01Scrum}" Route="sprint_daily" />
+            <ShellContent Title="Retrospectiva" ContentTemplate="{DataTemplate info:Help01Scrum}" Route="sprint_retrospective" />
         </Tab>
-        <Tab Title="Ayuda" Icon="help_bn.png">
-            <ShellContent Title="Ayuda" ContentTemplate="{DataTemplate info:Help01Scrum}" />
+
+        <Tab Route="help_root" Title="Ayuda" Icon="help_bn.png">
+            <ShellContent Title="Ayuda" ContentTemplate="{DataTemplate info:Help01Scrum}" Route="help" />
         </Tab>
     </TabBar>
 </Shell>
