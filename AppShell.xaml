@@ -25,6 +25,7 @@
             <ShellContent Title="Panel BackLog" ContentTemplate="{DataTemplate panels:Backlog}" Route="backlog_panel" />
             <ShellContent Title="Tareas Web" ContentTemplate="{DataTemplate panels:WebTaskList}" Route="backlog_web" />
             <ShellContent Title="Nueva Tarea" ContentTemplate="{DataTemplate panels:NewTask}" Route="backlog_new" />
+            <ShellContent Title="Ver Tarea" ContentTemplate="{DataTemplate panels:ShowTask}" Route="backlog_show_task" />
         </Tab>
 
         <Tab Route="spring_root" Title="Spring" Icon="spring_bn.png">

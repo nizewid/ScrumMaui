@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScrumMaui.Views.Panels.ShowTask"
+             Title="Ver Tarea">
+
+    <ContentPage.Resources>
+        <Style x:Key="LabelBase" TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="DimGray"/>
+        </Style>
+
+        <Style x:Key="BaseVerticalStack" TargetType="VerticalStackLayout">
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="Padding" Value="20"/>
+            <Setter Property="Spacing" Value="10"/>
+        </Style>
+        <Style x:Key="TaskDataContainer" BasedOn="{StaticResource BaseVerticalStack}" TargetType="VerticalStackLayout">
+            <Setter Property="BackgroundColor" Value="Bisque"/>
+        </Style>
+        <Style x:Key="DatesContainer" BasedOn="{StaticResource BaseVerticalStack}" TargetType="VerticalStackLayout">
+            <Setter Property="BackgroundColor" Value="PapayaWhip"/>
+        </Style>
+        <Style x:Key="UserContainer" BasedOn="{StaticResource BaseVerticalStack}" TargetType="VerticalStackLayout">
+            <Setter Property="BackgroundColor" Value="MistyRose"/>
+        </Style>
+        <Style x:Key="ButtonsContainer" BasedOn="{StaticResource BaseVerticalStack}" TargetType="VerticalStackLayout">
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+
+        <Style x:Key="ImageTaskType" TargetType="Image">
+            <Setter Property="HeightRequest" Value="20"/>
+            <Setter Property="WidthRequest" Value="20"/>
+        </Style>
+        <Style x:Key="ImageUser" TargetType="Image">
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="WidthRequest" Value="40"/>
+        </Style>
+
+        <Style x:Key="HeaderBase" TargetType="Label">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="TaskHeader" BasedOn="{StaticResource HeaderBase}" TargetType="Label">
+            <Setter Property="TextColor" Value="Navy"/>
+        </Style>
+        <Style x:Key="DatesHeader" BasedOn="{StaticResource HeaderBase}" TargetType="Label">
+            <Setter Property="TextColor" Value="Brown"/>
+        </Style>
+
+        <Style x:Key="TaskName" BasedOn="{StaticResource LabelBase}" TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style x:Key="LabelData" BasedOn="{StaticResource LabelBase}" TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+        <Style x:Key="LabelState" BasedOn="{StaticResource LabelBase}" TargetType="Label">
+            <Setter Property="TextColor" Value="Green"/>
+        </Style>
+
+        <Style x:Key="ButtonBase" TargetType="Button">
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BackgroundColor" Value="LightSteelBlue"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style x:Key="ButtonRed" TargetType="Button" BasedOn="{StaticResource ButtonBase}">
+            <Setter Property="BackgroundColor" Value="DarkRed"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <HorizontalStackLayout Style="{StaticResource TaskDataContainer}">
+                <Image Source="scrumtarea.png" Style="{StaticResource ImageTaskType}"/>
+                <Label Text="PRO-0345" Style="{StaticResource TaskHeader}"/>
+            </HorizontalStackLayout>
+
+            <VerticalStackLayout Style="{StaticResource TaskDataContainer}">
+                <Label Text="Datos de la tarea" Style="{StaticResource TaskHeader}"/>
+                <Label Text="Obtener pedidos pendientes" Style="{StaticResource TaskName}"/>
+                <Label Text="Crear un servicio dentro de la API de pedidos que obtenga una lista con los pedidos pendientes y los devuelva en formato Json"/>
+                <HorizontalStackLayout>
+                    <Label Text="Tarea padre:" WidthRequest="100"/>
+                    <Label Text="Pedidos" Style="{StaticResource LabelData}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Estado:" WidthRequest="100"/>
+                    <Label Text="En Progreso" Style="{StaticResource LabelState}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Style="{StaticResource DatesContainer}">
+                <Label Text="Fechas" Style="{StaticResource DatesHeader}"/>
+                <HorizontalStackLayout>
+                    <Label Text="Planificación:" WidthRequest="100"/>
+                    <Label Text="15-04-2024" Style="{StaticResource LabelData}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Inicio:" WidthRequest="100"/>
+                    <Label Text="10-03-2024" Style="{StaticResource LabelData}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout>
+                    <Label Text="Fin:" WidthRequest="100"/>
+                    <Label Text="- -" Style="{StaticResource LabelData}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <HorizontalStackLayout Style="{StaticResource UserContainer}">
+                <Image Source="user_06.png" Style="{StaticResource ImageUser}" />
+                <Label Text="Antonio Redondo Mateos" Style="{StaticResource LabelData}"/>
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Style="{StaticResource ButtonsContainer}">
+                <Button Text="Editar" Style="{StaticResource ButtonBase}"/>
+                <Button Text="Finalizar" Style="{StaticResource ButtonRed}"/>
+                <Button Text="Cancelar" Style="{StaticResource ButtonBase}"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

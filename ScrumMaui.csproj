@@ -65,6 +65,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\Panels\ShowTask.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Panels\WebTaskList.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
