@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScrumMaui.Themes.WhiteTheme">
+
+    <Color x:Key="ColorFondoPagina">LavenderBlush</Color>
+    <Color x:Key="ColorBarraNavegacion">Lavender</Color>
+    <Color x:Key="ColorFondoPrimario">LavenderBlush</Color>
+    <Color x:Key="ColorFondoSecundario">White</Color>
+    <Color x:Key="ColorTextoPrimario">Black</Color>
+    <Color x:Key="ColorTextoSecundario">LightSlateGray</Color>
+    <Color x:Key="ColorTextoTerciario">Gray</Color>
+    <Color x:Key="ColorTransparente">Transparent</Color>
+</ResourceDictionary>

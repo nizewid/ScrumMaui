@@ -18,6 +18,7 @@
         <Tab Route="user_root" Title="Usuario" Icon="usuario_bn.png">
             <ShellContent Title="Datos Usuario" ContentTemplate="{DataTemplate user:UserPage}" Route="user_data" />
             <ShellContent Title="Equipo" ContentTemplate="{DataTemplate user:UserEquipment}" Route="team" />
+            <ShellContent Title="Equ. II" ContentTemplate="{DataTemplate user:TeamWork}" Route="teamwork"/>
             <ShellContent Title="Asignar" ContentTemplate="{DataTemplate user:Locations}" Route="assign" />
         </Tab>
 

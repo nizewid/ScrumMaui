@@ -7,15 +7,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScrumMaui.Views.Info"
         mc:Ignorable="d"
+        BackgroundColor="{DynamicResource ColorFondoPagina}"
+        Shell.BackgroundColor="{DynamicResource ColorBarraNavegacion}"
+        Shell.ForegroundColor="{DynamicResource ColorTextoPrimario}" 
         Title="Help 01 Scrum">
     
-        <ScrollView>
+    <ContentPage.Resources>
+        <Style x:Key="buttonBase" TargetType="Button">
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BackgroundColor" Value="LightSteelBlue"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="labelEstandar" TargetType="Label">
+            <Setter Property="TextColor" Value="{DynamicResource ColorTextoPrimario}" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+
         <VerticalStackLayout Margin="30,10,30,30">
             <Image Source="logo_scrummaui.png" Margin="10,0,10,30"/>
-            <Label FontSize="Subtitle" TextColor="#3c75c1" Text="Scrum MAUI te permite planificar el desarrollo de tu proyecto, disponer tu lista de producto, planificar lo que incluye cada spring, consultar el panel con el estado de las tareas y ver el trabajo restante para entregar el producto."/>
-            <Label Text="Bloques de la aplicación" Margin="0,20,0,0" FontSize="Medium"/>
+            <Label FontSize="Subtitle" TextColor="{DynamicResource ColorTextoSecundario}" Text="Scrum MAUI te permite planificar el desarrollo de tu proyecto, disponer tu lista de producto, planificar lo que incluye cada spring, consultar el panel con el estado de las tareas y ver el trabajo restante para entregar el producto."/>
+            <Label Text="Bloques de la aplicación" TextColor="{DynamicResource ColorTextoPrimario}"  Margin="0,20,0,0" FontSize="Medium"/>
+
+
             <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
-                <Label WidthRequest="200" Text="Partes principales de la metodología Scrum en los que se define el trabajo a realizar"/>
+                <Label WidthRequest="200" TextColor="{DynamicResource ColorTextoPrimario}" Text="Partes principales de la metodología Scrum en los que se define el trabajo a realizar"/>
                 <Button Text="Artefactos" WidthRequest="100" FontAttributes="Bold" BackgroundColor="#27a3d4" x:Name="btnArtefactos" Clicked="btnArtefactos_Clicked"/>
             </HorizontalStackLayout>
 
@@ -30,16 +49,16 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Image Grid.Row="0" Grid.Column="0" Source="backlog.png" HeightRequest="30"/>
-                <Label Grid.Row="0" Grid.Column="1" Text="Backlog. Lista de tareas del proyecto" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Backlog. Lista de tareas del proyecto" TextColor="{DynamicResource ColorTextoTerciario}"/>
                 <Image Grid.Row="1" Grid.Column="0" Source="springbacklog.png" HeightRequest="30"/>
-                <Label Grid.Row="1" Grid.Column="1" Text="Spring Backlog. Tareas a realizar en un Spring" />
+                <Label Grid.Row="1" Grid.Column="1" Text="Spring Backlog. Tareas a realizar en un Spring"  TextColor="{DynamicResource ColorTextoTerciario}"/>
                 <Image Grid.Row="2" Grid.Column="0" Source="scrumpanel.png" HeightRequest="30"/>
-                <Label Grid.Row="2" Grid.Column="1" Text="Tablero Scrum. Visualización del estado de las tareas" />
+                <Label Grid.Row="2" Grid.Column="1" Text="Tablero Scrum. Visualización del estado de las tareas"  TextColor="{DynamicResource ColorTextoTerciario}"/>
             </Grid>
 
 
             <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
-                <Label WidthRequest="200" Text="Tipos de usuarios que participan en los ciclos de Scrum"/>
+                <Label WidthRequest="200" TextColor="{DynamicResource ColorTextoPrimario}" Text="Tipos de usuarios que participan en los ciclos de Scrum"/>
                 <Button Text="Usuarios" WidthRequest="100" FontAttributes="Bold" x:Name="btnUsuarios" BackgroundColor="#27a3d4" Clicked="btnUsuarios_Clicked"/>
             </HorizontalStackLayout>
 
@@ -54,15 +73,15 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Image Grid.Row="0" Grid.Column="0" Source="productowner.png" HeightRequest="30"/>
-                <Label Grid.Row="0" Grid.Column="1" Text="Product Owner. Representante del negocio" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Product Owner. Representante del negocio"  TextColor="{DynamicResource ColorTextoTerciario}"/>
                 <Image Grid.Row="1" Grid.Column="0" Source="scrummaster.png" HeightRequest="30"/>
-                <Label Grid.Row="1" Grid.Column="1" Text="Scrum Master. Gestor del proyecto" />
+                <Label Grid.Row="1" Grid.Column="1" Text="Scrum Master. Gestor del proyecto"  TextColor="{DynamicResource ColorTextoTerciario}"/>
                 <Image Grid.Row="2" Grid.Column="0" Source="scrumequipo.png" HeightRequest="30"/>
-                <Label Grid.Row="2" Grid.Column="1" Text="Equipo. Realizan las tareas asignadas" />
+                <Label Grid.Row="2" Grid.Column="1" Text="Equipo. Realizan las tareas asignadas"  TextColor="{DynamicResource ColorTextoTerciario}"/>
             </Grid>
 
             <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,0">
-                <Label WidthRequest="200" Text="Estructuras en las que se fragmentan las tareas a realizar"/>
+                <Label WidthRequest="200" TextColor="{DynamicResource ColorTextoPrimario}" Text="Estructuras en las que se fragmentan las tareas a realizar"/>
                 <Button Text="Elementos" WidthRequest="100" FontAttributes="Bold" BackgroundColor="#27a3d4" x:Name="btnElementos" Clicked="btnElementos_Clicked"/>
             </HorizontalStackLayout>
 
@@ -78,14 +97,19 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Image Grid.Row="0" Grid.Column="0" Source="scrumepica.png" HeightRequest="30"/>
-                <Label Grid.Row="0" Grid.Column="1" Text="Épica. Agrupación de tareas" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Épica. Agrupación de tareas"  TextColor="{DynamicResource ColorTextoTerciario}"/>
                 <Image Grid.Row="1" Grid.Column="0" Source="scrumhistoria.png" HeightRequest="30"/>
-                <Label Grid.Row="1" Grid.Column="1" Text="Historia de Usuario. Funcionalidad de usuario final" />
+                <Label Grid.Row="1" Grid.Column="1" Text="Historia de Usuario. Funcionalidad de usuario final"  TextColor="{DynamicResource ColorTextoTerciario}"/>
                 <Image Grid.Row="2" Grid.Column="0" Source="scrumtarea.png" HeightRequest="30"/>
-                <Label Grid.Row="2" Grid.Column="1" Text="Tarea. Pieza final a desarrollar" />
+                <Label Grid.Row="2" Grid.Column="1" Text="Tarea. Pieza final a desarrollar"  TextColor="{DynamicResource ColorTextoTerciario}"/>
                 <Image Grid.Row="3" Grid.Column="0" Source="scrumincidencia.png" HeightRequest="30"/>
-                <Label Grid.Row="3" Grid.Column="1" Text="Incidencia. Problema a solucionar" />
+                <Label Grid.Row="3" Grid.Column="1" Text="Incidencia. Problema a solucionar"  TextColor="{DynamicResource ColorTextoTerciario}"/>
             </Grid>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,150,0,0" Spacing="1">
+                <Button Text="Tema Azul" x:Name="btnBlueTheme" Clicked="btnBlueTheme_Clicked" Style="{StaticResource buttonBase}"/>
+                <Button Text="Tema Claro" x:Name="btnWhiteTheme" Clicked="btnWhiteTheme_Clicked" Style="{StaticResource buttonBase}"/>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

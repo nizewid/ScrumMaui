@@ -20,4 +20,23 @@ public partial class Help01Scrum : ContentPage
     {
         panelElementos.IsVisible = !panelElementos.IsVisible;
     }
+    private void btnBlueTheme_Clicked(object sender, EventArgs e)
+    {
+        ICollection<ResourceDictionary> listaDiccionarios = Application.Current.Resources.MergedDictionaries;
+        if (listaDiccionarios != null)
+        {
+            listaDiccionarios.Clear();
+            listaDiccionarios.Add(new Themes.BlueTheme());
+        }
+    }
+    private void btnWhiteTheme_Clicked(object sender, EventArgs e)
+    {
+
+        ICollection<ResourceDictionary> listaDiccionarios = Application.Current.Resources.MergedDictionaries;
+        if (listaDiccionarios != null)
+        {
+            listaDiccionarios.Clear();
+            listaDiccionarios.Add(new Themes.WhiteTheme());
+        }
+    }
 }

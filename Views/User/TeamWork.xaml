@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScrumMaui.Views.User.TeamWork"
+             Title="Equipo Trabajo">
+
+    <ContentPage.Resources>
+        <Style x:Key="BaseFrame" TargetType="Frame">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+
+        <Style x:Key="BaseProductOwnerFrame" TargetType="Frame" BasedOn="{StaticResource BaseFrame}">
+        </Style>
+        <Style x:Key="BaseScrumMasterFrame" TargetType="Frame" BasedOn="{StaticResource BaseFrame}">
+        </Style>
+        <Style x:Key="BaseEquipoFrame" TargetType="Frame" BasedOn="{StaticResource BaseFrame}">
+        </Style>
+
+        <Style x:Key="ProductOwnerFrame" TargetType="Frame" BasedOn="{StaticResource BaseFrame}">
+            <Setter Property="BackgroundColor" Value="MistyRose"/>
+            <Setter Property="BorderColor" Value="DarkRed"/>
+        </Style>
+        <Style x:Key="ScrumMasterFrame" TargetType="Frame" BasedOn="{StaticResource BaseFrame}">
+            <Setter Property="BackgroundColor" Value="Moccasin"/>
+            <Setter Property="BorderColor" Value="DarkOrange"/>
+        </Style>
+        <Style x:Key="EquipoFrame" TargetType="Frame" BasedOn="{StaticResource BaseFrame}">
+            <Setter Property="BackgroundColor" Value="PowderBlue"/>
+            <Setter Property="BorderColor" Value="Navy"/>
+        </Style>
+
+
+        <Style x:Key="buttonBase" TargetType="Button">
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BackgroundColor" Value="LightSteelBlue"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="labelNombre" TargetType="Label">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="labelBase" TargetType="Label">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="TextColor" Value="BlueViolet"/>
+        </Style>
+
+        <Style x:Key="labelBaseProductOwner" TargetType="Label" BasedOn="{StaticResource labelBase}"></Style>
+        <Style x:Key="labelBaseScrumMaster" TargetType="Label" BasedOn="{StaticResource labelBase}"></Style>
+        <Style x:Key="labelBaseEquipo" TargetType="Label" BasedOn="{StaticResource labelBase}"></Style>
+
+        <Style x:Key="labelProductOwner" TargetType="Label" BasedOn="{StaticResource labelBase}">
+            <Setter Property="TextColor" Value="DarkRed"/>
+        </Style>
+        <Style x:Key="labelScrumMaster" TargetType="Label" BasedOn="{StaticResource labelBase}">
+            <Setter Property="TextColor" Value="DarkOrange"/>
+        </Style>
+        <Style x:Key="labelEquipo" TargetType="Label" BasedOn="{StaticResource labelBase}">
+            <Setter Property="TextColor" Value="Navy"/>
+        </Style>
+
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+
+        <Frame Style="{DynamicResource BaseProductOwnerFrame}">
+            <VerticalStackLayout>
+                <HorizontalStackLayout Margin="0,0,0,10">
+                    <Label Text="Product Owner" Style="{DynamicResource labelBaseProductOwner}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="20">
+                    <Image Source="user_01.png" WidthRequest="40"/>
+                    <Label Text="Calos Santos López" Style="{StaticResource labelNombre}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Frame Style="{DynamicResource BaseScrumMasterFrame}">
+            <VerticalStackLayout>
+                <HorizontalStackLayout Margin="0,0,0,10">
+                    <Label Text="Scrum Master" FontSize="14" Style="{DynamicResource labelBaseScrumMaster}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="20">
+                    <Image Source="user_02.png" WidthRequest="40"/>
+                    <Label Text="Angel Sánchez Gómez" Style="{StaticResource labelNombre}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Frame Style="{DynamicResource BaseEquipoFrame}">
+            <VerticalStackLayout>
+                <HorizontalStackLayout Margin="0,0,0,10">
+                    <Label Text="Equipo" FontSize="14" Style="{DynamicResource labelBaseEquipo}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="20">
+                    <Image Source="user_03.png" WidthRequest="40"/>
+                    <Label Text="Miguel Heras Ramos" Style="{StaticResource labelNombre}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <Frame Style="{DynamicResource BaseEquipoFrame}">
+            <VerticalStackLayout>
+                <HorizontalStackLayout Margin="0,0,0,10">
+                    <Label Text="Equipo" FontSize="14" Style="{DynamicResource labelBaseEquipo}"/>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout Spacing="20">
+                    <Image Source="user_04.png" WidthRequest="40"/>
+                    <Label Text="Rosa María Matas Prieto" Style="{StaticResource labelNombre}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+        <HorizontalStackLayout Margin="0,30,0,0" HorizontalOptions="Center">
+            <Button Text="Asignar estilos" x:Name="btnAssign" Clicked="btnAssign_Clicked"  Style="{StaticResource buttonBase}"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>
