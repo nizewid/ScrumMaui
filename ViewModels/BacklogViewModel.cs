@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using ScrumMaui.Data;
 using ScrumMaui.Models;
+using ScrumMaui.Services;
 
 namespace ScrumMaui.ViewModels
 {
@@ -14,52 +15,69 @@ namespace ScrumMaui.ViewModels
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public ObservableCollection<Models.Task> BacklogList { get; set; }
+        public ObservableCollection<TaskModel> TaskList { get; set; }
 
-        public ICommand SearchTaskCommand { get; }
+        public ICommand SearchTaskCommand { get; private set; }
 
         public BacklogViewModel()
         {
-            BacklogList = new ObservableCollection<Models.Task>();
-            _ = LoadBacklogList("");
-            SearchTaskCommand = new Command<string>(async (param) => await ExecuteSearch(param));
+            TaskList = new ObservableCollection<TaskModel>();
+            _ = LoadTaskList("");
+            SearchTaskCommand = new Command<string>(async (string param) => await ExecuteSearch(param));
         }
 
-        private async System.Threading.Tasks.Task LoadBacklogList(string taskNameFilter)
+        public async Task LoadTaskList(string searchName)
         {
             try
             {
-                List<Models.Task> taskList = await ScrumData.GetBacklogList();
+                List<TaskModel>? tasks = await ServiceApi.GetTaskList();
 
-                if (!string.IsNullOrWhiteSpace(taskNameFilter))
+                // Si API devuelve null o vacía, carga local
+                if (tasks == null || !tasks.Any())
                 {
-                    taskList = taskList
-                        .Where(t => t.Name.ToLower().Contains(taskNameFilter.ToLower()))
-                        .ToList();
+                    tasks = await ScrumData.GetBacklogList();
                 }
 
-                foreach (var t in taskList)
+                if (!string.IsNullOrEmpty(searchName))
                 {
-                    t.EndDateText = t.EndDate?.ToString("dd/MM/yyyy") ?? string.Empty;
-                    t.PlannedDateText = t.PlannedDate?.ToString("dd/MM/yyyy") ?? string.Empty;
-                    t.AssignedDateText = t.AssignedDate?.ToString("dd/MM/yyyy") ?? string.Empty;
+                    tasks = tasks.Where(t => t.Name != null &&
+                                             t.Name.ToLower().Contains(searchName.ToLower()))
+                                 .ToList();
                 }
 
-                BacklogList.Clear();
-                foreach (var t in taskList)
+                foreach (var task in tasks)
                 {
-                    BacklogList.Add(t);
+                    // Adaptamos las fechas en formato texto
+                    task.PlannedDateText = task.PlannedDate?.ToString("dd/MM/yyyy");
+                    task.AssignedDateText = task.AssignedDate?.ToString("dd/MM/yyyy");
+                    task.EndDateText = task.EndDate?.ToString("dd/MM/yyyy");
+                }
+
+                TaskList.Clear();
+                foreach (var task in tasks)
+                {
+                    TaskList.Add(task);
                 }
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"[Backlog] Error: {ex.Message}");
+                Debug.WriteLine($"Error al cargar tareas: {ex.Message}");
             }
         }
 
-        private async System.Threading.Tasks.Task ExecuteSearch(string searchText)
+        public async Task ExecuteSearch(string query)
         {
-            await LoadBacklogList(searchText);
+            await LoadTaskList(query);
+        }
+
+        public async Task<bool> AddTask(TaskModel newTask)
+        {
+            return await ServiceApi.AddTask(newTask);
+        }
+
+        public async Task<bool> DeleteTask(int id)
+        {
+            return await ServiceApi.DelTask(id);
         }
     }
 }

@@ -23,7 +23,7 @@ public partial class CreateSpringList : ContentPage
     {
         if (codigoEnMovimiento != "")
         {
-            Models.Task tareaMueve = scrumVistaModelo.TaskListBacklog.FirstOrDefault(t => t.TaskCode.Equals(codigoEnMovimiento));
+            Models.TaskModel tareaMueve = scrumVistaModelo.TaskListBacklog.FirstOrDefault(t => t.TaskCode.Equals(codigoEnMovimiento));
             if (tareaMueve != null)
             {
                 scrumVistaModelo.TaskListSpring.Add(tareaMueve);

@@ -4,7 +4,6 @@
              x:Class="ScrumMaui.Views.Backlog.BacklogTabbedPage"
              Title="Backlog">
 
-    <!-- Aquí puedes insertar subpáginas -->
     <ContentPage Title="Panel BackLog">
         <Label Text="Panel BackLog (pendiente de implementar)" 
                HorizontalOptions="Center" VerticalOptions="Center" />

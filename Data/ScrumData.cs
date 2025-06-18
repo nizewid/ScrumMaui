@@ -4,28 +4,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Task = ScrumMaui.Models.Task;
 
 namespace ScrumMaui.Data
 {
     public static class ScrumData
     {
-        public static async System.Threading.Tasks.Task<List<Models.Task>> GetBacklogList()
+        public static async Task<List<TaskModel>> GetBacklogList()
         {
-            List<Task> backlog = new List<Task>
+            List<TaskModel> backlog = new List<TaskModel>
                {
-                   new Task
+                   new TaskModel
                    {
                        TaskCode = "DEMO-0001",
                        TaskType = TaskTypes.Epic,
-                       Name = "Gestión de seguridad y acceso",
+                       Name = "NO-API-Gestión de seguridad y acceso",
                        ParentTaskName = "Raíz",
                        Description = "Creación de los elementos necesarios para gestionar la seguridad de la app y el acceso a la misma.",
                        PlannedDate = DateTime.Now.AddDays(130),
                        Status = TaskStatuses.Created,
                        TypeIcon = "scrumepica.png"
                    },
-                   new Task
+                   new TaskModel
                    {
                        TaskCode = "DEMO-0002",
                        TaskType = TaskTypes.UserStory,
@@ -37,7 +36,7 @@ namespace ScrumMaui.Data
                        Status = TaskStatuses.Created,
                        TypeIcon = "scrumhistoria.png"
                    },
-                   new Task
+                   new TaskModel
                    {
                        TaskCode = "DEMO-0003",
                        TaskType = TaskTypes.FinalTask,
@@ -49,7 +48,7 @@ namespace ScrumMaui.Data
                        Status = TaskStatuses.Created,
                        TypeIcon = "scrumtarea.png"
                    },
-                   new Task
+                   new TaskModel
                    {
                        TaskCode = "DEMO-0004",
                        TaskType = TaskTypes.FinalTask,
@@ -61,7 +60,7 @@ namespace ScrumMaui.Data
                        Status = TaskStatuses.Created,
                        TypeIcon = "scrumtarea.png"
                    },
-                   new Task
+                   new TaskModel
                    {
                        TaskCode = "DEMO-0005",
                        TaskType = TaskTypes.FinalTask,
@@ -73,7 +72,7 @@ namespace ScrumMaui.Data
                        Status = TaskStatuses.Created,
                        TypeIcon = "scrumtarea.png"
                    },
-                   new Task
+                   new TaskModel
                    {
                        TaskCode = "DEMO-0006",
                        TaskType = TaskTypes.FinalTask,
@@ -85,7 +84,7 @@ namespace ScrumMaui.Data
                        Status = TaskStatuses.Created,
                        TypeIcon = "scrumtarea.png"
                    },
-                   new Task
+                   new TaskModel
                    {
                        TaskCode = "DEMO-0007",
                        TaskType = TaskTypes.FinalTask,
@@ -97,7 +96,7 @@ namespace ScrumMaui.Data
                        Status = TaskStatuses.Created,
                        TypeIcon = "scrumtarea.png"
                    },
-                   new Task
+                   new TaskModel
                    {
                        TaskCode = "DEMO-0008",
                        TaskType = TaskTypes.UserStory,
@@ -109,7 +108,7 @@ namespace ScrumMaui.Data
                        Status = TaskStatuses.Created,
                        TypeIcon = "scrumhistoria.png"
                    },
-                   new Task
+                   new TaskModel
                    {
                        TaskCode = "DEMO-0009",
                        TaskType = TaskTypes.FinalTask,
@@ -121,7 +120,7 @@ namespace ScrumMaui.Data
                        Status = TaskStatuses.Created,
                        TypeIcon = "scrumtarea.png"
                    },
-                   new Task
+                   new TaskModel
                    {
                        TaskCode = "DEMO-0010",
                        TaskType = TaskTypes.FinalTask,
@@ -134,7 +133,7 @@ namespace ScrumMaui.Data
                        TypeIcon = "scrumtarea.png"
                    }
                };
-            return await System.Threading.Tasks.Task.FromResult(backlog);
+            return await Task.FromResult(backlog);
         }
     }
 }

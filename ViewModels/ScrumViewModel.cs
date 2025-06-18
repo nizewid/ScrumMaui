@@ -14,8 +14,8 @@ namespace ScrumMaui.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private ObservableCollection<Models.Task> taskListBacklog;
-        public ObservableCollection<Models.Task> TaskListBacklog
+        private ObservableCollection<Models.TaskModel> taskListBacklog;
+        public ObservableCollection<Models.TaskModel> TaskListBacklog
         {
             get { return taskListBacklog; }
             set
@@ -25,8 +25,8 @@ namespace ScrumMaui.ViewModels
             }
         }
 
-        private ObservableCollection<Models.Task> taskListSpring;
-        public ObservableCollection<Models.Task> TaskListSpring
+        private ObservableCollection<Models.TaskModel> taskListSpring;
+        public ObservableCollection<Models.TaskModel> TaskListSpring
         {
             get { return taskListSpring; }
             set
@@ -43,8 +43,8 @@ namespace ScrumMaui.ViewModels
 
         private async void LoadListBacklog()
         {
-            TaskListBacklog = new ObservableCollection<Models.Task>();
-            List<Models.Task> backlogList = await ScrumData.GetBacklogList();
+            TaskListBacklog = new ObservableCollection<Models.TaskModel>();
+            List<Models.TaskModel> backlogList = await ScrumData.GetBacklogList();
             foreach (var item in backlogList)
             {
                 TaskListBacklog.Add(item);
@@ -52,7 +52,7 @@ namespace ScrumMaui.ViewModels
         }
         private void LoadListSpring()
         {
-            taskListSpring = new ObservableCollection<Models.Task>();
+            taskListSpring = new ObservableCollection<Models.TaskModel>();
         }
         protected virtual void OnPropertyChanged(string nameOfPropertyChanged)
         {

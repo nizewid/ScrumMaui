@@ -5,11 +5,7 @@
              xmlns:viewmodels="clr-namespace:ScrumMaui.ViewModels"
              Title="Backlog"
              BackgroundColor="Lavender">
-
-    <ContentPage.BindingContext>
-        <viewmodels:BacklogViewModel />
-    </ContentPage.BindingContext>
-
+    
     <ContentPage.Resources>
         <DataTemplate x:Key="BacklogTemplate">
             <StackLayout>
@@ -40,20 +36,31 @@
 
     <ScrollView>
         <StackLayout>
-            <SearchBar x:Name="SearchBarTasks"
-                       Placeholder="Buscar tarea..."
-                       CancelButtonColor="Black"
-                       SearchCommand="{Binding SearchTaskCommand}"
-                       SearchCommandParameter="{Binding Text, Source={x:Reference SearchBarTasks}}"
-                       TextChanged="SearchBarTasks_TextChanged" />
+            <HorizontalStackLayout>
+                <SearchBar x:Name="SearchBarTasks"
+                           Placeholder="Buscar tarea..."
+                           CancelButtonColor="Black"
+                           SearchCommand="{Binding SearchTaskCommand}"
+                           SearchCommandParameter="{Binding Text, Source={x:Reference SearchBarTasks}}"
+                           TextChanged="SearchBarTasks_TextChanged"
+                           WidthRequest="290" />
+                <Button Text="Actualizar"
+                        x:Name="btnActualizar"
+                        Clicked="btnActualizar_Clicked"
+                        HeightRequest="40"
+                        BackgroundColor="LightSteelBlue"
+                        TextColor="Black" />
+            </HorizontalStackLayout>
 
-            <StackLayout Margin="20">
+            <StackLayout Margin="10">
+                <ActivityIndicator IsRunning="True" Color="Magenta" x:Name="activityIndicator" />
                 <CollectionView Margin="10"
-                                ItemsSource="{Binding BacklogList}"
+                                ItemsSource="{Binding TaskList}"
                                 ItemTemplate="{StaticResource BacklogTemplate}"
-                                SelectionMode="Single" />
+                                SelectionMode="Single"
+                                x:Name="collViewListaBacklog"
+                                SelectionChanged="collViewListaBacklog_SelectionChanged" />
             </StackLayout>
-
         </StackLayout>
     </ScrollView>
 </ContentPage>

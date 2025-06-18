@@ -25,8 +25,9 @@ namespace ScrumMaui.Models
         public static string Finished => "Finalizado";
     }
 
-    public class Task
+    public class TaskModel
     {
+        public int Id { get; set; }
         public string? TaskCode { get; set; }
         public string? TaskType { get; set; }
         public string? Name { get; set; }
@@ -45,6 +46,4 @@ namespace ScrumMaui.Models
         public string? TypeIcon { get; set; }
         public string? Avatar { get; set; }
     }
-
-
 }
