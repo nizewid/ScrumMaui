@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            x:Class="ScrumMaui.Views.User.LoginUser"       
+            xmlns:local="clr-namespace:ScrumMaui.Views.User"
+            mc:Ignorable="d">
+
+
+    <ContentPage.Resources>
+        <Style x:Key="buttonBase" TargetType="Button">
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BackgroundColor" Value="LightSteelBlue"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style x:Key="buttonRed" TargetType="Button" BasedOn="{StaticResource buttonBase}">
+            <Setter Property="BackgroundColor" Value="LightPink"/>
+            <Setter Property="TextColor" Value="DarkRed"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="SteelBlue"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="SeaShell"/>
+        </Style>
+
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Margin="20" Spacing="5">
+
+        <VerticalStackLayout x:Name="contenedorDatos" Margin="20">
+            <Label Text="Datos del usuario" HorizontalTextAlignment="Center" FontSize="20"/>
+
+            <Label Text="Nombre de usuario"/>
+            <Entry x:Name="txtUsuario" MaxLength="40"/>
+
+            <Label Text="Password"/>
+            <Entry x:Name="txtPassword" MaxLength="20" IsPassword="True"/>
+
+            <Button Text="Acceder" x:Name="btnAcceder" Clicked="btnAcceder_Clicked" Style="{StaticResource buttonRed}"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="contenedorMsg">
+            <Label Text="" x:Name="lblMsgAcceso" HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout x:Name="contenedorAcciones" Margin="20">
+            <Button Text="Ver Lista" x:Name="btnVerLista" Clicked="btnVerLista_Clicked" Style="{StaticResource buttonBase}"/>
+        </VerticalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

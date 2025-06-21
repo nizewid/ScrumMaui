@@ -12,19 +12,22 @@ namespace ScrumMaui
         {
             InitializeComponent();
             RegisterRoutes();
+            
         }
 
         void RegisterRoutes()
         {
             Routes.Add("home", typeof(MainPage));
+            Routes.Add("login", typeof(LoginUser));
 
             Routes.Add("user_data", typeof(UserPage));
             Routes.Add("team", typeof(UserEquipment));
             Routes.Add("assign", typeof(Locations));
 
-            Routes.Add("backlog_panel", typeof(Backlog));
-            Routes.Add("backlog_web", typeof(WebTaskList));
-            Routes.Add("backlog_new", typeof(NewTask));
+            Routes.Add("backlog_panel", typeof(WebTaskList));
+            Routes.Add("backlog_new_Task", typeof(NewTask));
+            Routes.Add("backlog_show_task", typeof(ShowTask));
+            Routes.Add("backlog_database", typeof(BdBacklog));
 
             Routes.Add("sprint_new", typeof(NewSpring));
             Routes.Add("sprint_panel", typeof(SpringPanel));

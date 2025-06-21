@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+            xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://schemas.microsoft.com/dotnet/2021/maui/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:ScrumMaui.Views.Panels"    	
+            mc:Ignorable="d"
+             x:Class="ScrumMaui.Views.Panels.BdModifTask"
+             Title="Modificar Tarea -DB-">
+    
+    <ContentPage.Resources>
+        <Style x:Key="buttonBase" TargetType="Button">
+            <Setter Property="HeightRequest" Value="40"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BackgroundColor" Value="LightSteelBlue"/>
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style x:Key="buttonRed" TargetType="Button" BasedOn="{StaticResource buttonBase}">
+            <Setter Property="BackgroundColor" Value="LightPink"/>
+            <Setter Property="TextColor" Value="DarkRed"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextColor" Value="SteelBlue"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="SeaShell"/>
+        </Style>
+        <Style TargetType="Editor">
+            <Setter Property="BackgroundColor" Value="SeaShell"/>
+        </Style>
+        <Style TargetType="Picker">
+            <Setter Property="BackgroundColor" Value="SeaShell"/>
+            <Setter Property="TitleColor" Value="Navy"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Margin="20,0,20,0">
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Modificar Tarea" FontSize="24"></Label>
+            </HorizontalStackLayout>
+
+            <Label Text="Código tarea"/>
+            <Entry x:Name="txtCodigoTarea"/>
+
+            <Label Text="Tipo Tarea" />
+            <Picker x:Name="pickerTipoTarea" Title="Seleccionar Tipo Tarea" >
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Épica</x:String>
+                        <x:String>Historia Usuario</x:String>
+                        <x:String>Tarea Final</x:String>
+                        <x:String>Incidencia</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Nombre Tarea"  />
+            <Entry x:Name="txtNombreTarea"/>
+
+            <Label Text="Descripción"/>
+            <Editor x:Name="txtDescripcion" HeightRequest="60" />
+
+            <Label Text="Tarea Padre"  />
+            <Entry x:Name="txtNombreTareaPadre"/>
+
+            <Label Text="Fecha planificación"/>
+            <DatePicker x:Name="datePicFechaPlanificacion"/>
+
+            <Label Text="Icono"/>
+            <Picker x:Name="pickerIcono" Title="Seleccionar un icono" >
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>scrumepica.png</x:String>
+                        <x:String>scrumhistoria.png</x:String>
+                        <x:String>scrumtarea.png</x:String>
+                        <x:String>scrumincidencia.png</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,30,0,0" Spacing="2">
+                <Button Text="Aceptar" x:Name="btnAceptar" Clicked="btnAceptar_Clicked" Style="{StaticResource buttonBase}" />
+                <Button Text="Volver" x:Name="btnVolver" Clicked="btnVolver_Clicked" Style="{StaticResource buttonBase}"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

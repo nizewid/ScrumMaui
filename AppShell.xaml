@@ -13,6 +13,7 @@
     <TabBar>
         <Tab Route="home_root" Title="Inicio" Icon="inicio_bn.png">
             <ShellContent Title="Inicio" ContentTemplate="{DataTemplate local:MainPage}" Route="home" />
+            <ShellContent Title="Login" ContentTemplate="{DataTemplate user:LoginUser}" Route="login" />
         </Tab>
 
         <Tab Route="user_root" Title="Usuario" Icon="usuario_bn.png">
@@ -23,10 +24,10 @@
         </Tab>
 
         <Tab Route="backlog_root" Title="BackLog" Icon="backlog.png">
-            <ShellContent Title="Panel BackLog" ContentTemplate="{DataTemplate panels:Backlog}" Route="backlog_panel" />
-            <ShellContent Title="Tareas Web" ContentTemplate="{DataTemplate panels:WebTaskList}" Route="backlog_web" />
-            <ShellContent Title="Nueva Tarea" ContentTemplate="{DataTemplate panels:NewTask}" Route="backlog_new" />
-            <ShellContent Title="Ver Tarea" ContentTemplate="{DataTemplate panels:ShowTask}" Route="backlog_show_task" />
+            <!--<ShellContent Title="BackLog" ContentTemplate="{DataTemplate panels:Backlog}" Route="backlog_panel" /> -->
+            <ShellContent Title="Nueva Tarea" ContentTemplate="{DataTemplate panels:WebTaskList}" Route="backlog_new_Task" />
+            <ShellContent Title="Ver Tarea" ContentTemplate="{DataTemplate panels:NewTask}" Route="backlog_show_task" />
+            <ShellContent Title="BD" ContentTemplate="{DataTemplate panels:BdBacklog}" Route="backlog_database" />
         </Tab>
 
         <Tab Route="spring_root" Title="Spring" Icon="spring_bn.png">
